@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+dist
+.vscode
+.idea
+.DS_Store
+*.log
+.git
+.gitignore
+Progettazione.docx
+Immagini
+Json.md
