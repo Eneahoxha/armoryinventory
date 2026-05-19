@@ -20,6 +20,10 @@ ini_set('display_errors', 0);
 // Load configuration
 require_once __DIR__ . '/api/config/Database.php';
 require_once __DIR__ . '/api/controllers/AuthController.php';
+require_once __DIR__ . '/api/controllers/PersonaleController.php';
+require_once __DIR__ . '/api/controllers/SquadreController.php';
+require_once __DIR__ . '/api/controllers/EquipaggiamentoController.php';
+require_once __DIR__ . '/api/controllers/DotazioniController.php';
 
 // Parse the request
 $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -125,19 +129,159 @@ try {
             break;
         
         case 'personale':
-            json_response(['message' => 'Personale API endpoint', 'method' => $request_method]);
+            $controller = new PersonaleController($conn);
+            
+            switch ($request_method) {
+                case 'GET':
+                    if ($id) {
+                        $response = $controller->getById($id);
+                    } else {
+                        $response = $controller->getAll();
+                    }
+                    json_response($response);
+                    break;
+                
+                case 'POST':
+                    $response = $controller->create();
+                    json_response($response);
+                    break;
+                
+                case 'PUT':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for update'], 400);
+                    }
+                    $response = $controller->update($id);
+                    json_response($response);
+                    break;
+                
+                case 'DELETE':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for delete'], 400);
+                    }
+                    $response = $controller->delete($id);
+                    json_response($response);
+                    break;
+                
+                default:
+                    json_response(['error' => 'Method not allowed'], 405);
+            }
             break;
         
         case 'squadre':
-            json_response(['message' => 'Squadre API endpoint', 'method' => $request_method]);
+            $controller = new SquadreController($conn);
+            
+            switch ($request_method) {
+                case 'GET':
+                    if ($id) {
+                        $response = $controller->getById($id);
+                    } else {
+                        $response = $controller->getAll();
+                    }
+                    json_response($response);
+                    break;
+                
+                case 'POST':
+                    $response = $controller->create();
+                    json_response($response);
+                    break;
+                
+                case 'PUT':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for update'], 400);
+                    }
+                    $response = $controller->update($id);
+                    json_response($response);
+                    break;
+                
+                case 'DELETE':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for delete'], 400);
+                    }
+                    $response = $controller->delete($id);
+                    json_response($response);
+                    break;
+                
+                default:
+                    json_response(['error' => 'Method not allowed'], 405);
+            }
             break;
         
         case 'equipaggiamento':
-            json_response(['message' => 'Equipaggiamento API endpoint', 'method' => $request_method]);
+            $controller = new EquipaggiamentoController($conn);
+            
+            switch ($request_method) {
+                case 'GET':
+                    if ($id) {
+                        $response = $controller->getById($id);
+                    } else {
+                        $response = $controller->getAll();
+                    }
+                    json_response($response);
+                    break;
+                
+                case 'POST':
+                    $response = $controller->create();
+                    json_response($response);
+                    break;
+                
+                case 'PUT':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for update'], 400);
+                    }
+                    $response = $controller->update($id);
+                    json_response($response);
+                    break;
+                
+                case 'DELETE':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for delete'], 400);
+                    }
+                    $response = $controller->delete($id);
+                    json_response($response);
+                    break;
+                
+                default:
+                    json_response(['error' => 'Method not allowed'], 405);
+            }
             break;
         
         case 'dotazioni':
-            json_response(['message' => 'Dotazioni API endpoint', 'method' => $request_method]);
+            $controller = new DotazioniController($conn);
+            
+            switch ($request_method) {
+                case 'GET':
+                    if ($id) {
+                        $response = $controller->getById($id);
+                    } else {
+                        $response = $controller->getAll();
+                    }
+                    json_response($response);
+                    break;
+                
+                case 'POST':
+                    $response = $controller->create();
+                    json_response($response);
+                    break;
+                
+                case 'PUT':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for update'], 400);
+                    }
+                    $response = $controller->update($id);
+                    json_response($response);
+                    break;
+                
+                case 'DELETE':
+                    if (!$id) {
+                        json_response(['error' => 'ID required for delete'], 400);
+                    }
+                    $response = $controller->delete($id);
+                    json_response($response);
+                    break;
+                
+                default:
+                    json_response(['error' => 'Method not allowed'], 405);
+            }
             break;
         
         default:
