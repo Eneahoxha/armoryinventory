@@ -67,7 +67,7 @@ services:
 
   # Node.js Frontend Development Server (Vite)
   frontend:
-    image: node:18-alpine
+    image: node:22-alpine
     container_name: armory_frontend
     working_dir: /app
     volumes:
