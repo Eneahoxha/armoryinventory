@@ -26,28 +26,28 @@
           <div class="module-icon">👤</div>
           <h3>Personale</h3>
           <p>Gestisci i membri del team</p>
-          <button class="module-btn">Apri</button>
+          <button @click="$router.push('/personale')" class="module-btn">Apri</button>
         </div>
 
         <div class="module-card" v-if="canAccess('squadre')">
           <div class="module-icon">🎖️</div>
           <h3>Squadre</h3>
           <p>Organizza le squadre operative</p>
-          <button class="module-btn">Apri</button>
+          <button @click="$router.push('/squadre')" class="module-btn">Apri</button>
         </div>
 
         <div class="module-card" v-if="canAccess('equipaggiamento')">
           <div class="module-icon">🔫</div>
           <h3>Equipaggiamento</h3>
           <p>Catalogo armeria e attrezzature</p>
-          <button class="module-btn">Apri</button>
+          <button @click="$router.push('/equipaggiamento')" class="module-btn">Apri</button>
         </div>
 
         <div class="module-card" v-if="canAccess('dotazioni')">
           <div class="module-icon">📦</div>
           <h3>Dotazioni</h3>
           <p>Assegnazioni equipaggiamento</p>
-          <button class="module-btn">Apri</button>
+          <button @click="$router.push('/dotazioni')" class="module-btn">Apri</button>
         </div>
       </div>
 

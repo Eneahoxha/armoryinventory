@@ -3,6 +3,10 @@ import { useAuthStore } from '../stores/auth'
 
 import LoginPage from '../views/LoginPage.vue'
 import Dashboard from '../views/Dashboard.vue'
+import PersonaleList from '../views/PersonaleList.vue'
+import SquadreList from '../views/SquadreList.vue'
+import EquipaggiamentoList from '../views/EquipaggiamentoList.vue'
+import DotazioniList from '../views/DotazioniList.vue'
 
 const routes = [
   {
@@ -14,6 +18,30 @@ const routes = [
     path: '/',
     name: 'Dashboard',
     component: Dashboard,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/personale',
+    name: 'Personale',
+    component: PersonaleList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/squadre',
+    name: 'Squadre',
+    component: SquadreList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/equipaggiamento',
+    name: 'Equipaggiamento',
+    component: EquipaggiamentoList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/dotazioni',
+    name: 'Dotazioni',
+    component: DotazioniList,
     meta: { requiresAuth: true }
   }
 ]
@@ -54,3 +82,4 @@ router.beforeEach(async (to, from, next) => {
 })
 
 export default router
+
