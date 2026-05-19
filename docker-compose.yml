@@ -34,6 +34,8 @@ services:
     working_dir: /app
     volumes:
       - ./backend:/app
+      - ./seal_team_data.json:/app/seal_team_data.json
+      - ./Immagini:/app/Immagini
       - php_config:/usr/local/etc/php/conf.d/
       - ./public:/app/public
     environment:

@@ -56,6 +56,12 @@ class Personale {
      * Create new personale
      */
     public function create($data) {
+        // Generate personale_id if not provided
+        if (empty($data['personale_id'])) {
+            $count = $this->count();
+            $data['personale_id'] = 'SEAL_' . str_pad($count + 1, 3, '0', STR_PAD_LEFT);
+        }
+        
         $query = "
             INSERT INTO " . $this->table . " 
             (personale_id, nome, cognome, soprannome, nome_in_codice, occupazione, grado, 

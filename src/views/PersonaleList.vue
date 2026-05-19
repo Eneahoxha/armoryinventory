@@ -23,9 +23,10 @@
       <select v-model="filterStato" @change="filterPersonale">
         <option value="">Tutti gli Stati</option>
         <option value="Attivo">Attivo</option>
-        <option value="Inattivo">Inattivo</option>
-        <option value="Congedo">Congedo</option>
-        <option value="Pensionato">Pensionato</option>
+        <option value="Congedato">Congedato</option>
+        <option value="Deceduto">Deceduto</option>
+        <option value="Infortunato">Infortunato</option>
+        <option value="Sospeso">Sospeso</option>
       </select>
     </div>
 
@@ -50,8 +51,8 @@
           <td>{{ p.grado }}</td>
           <td>{{ p.nome_squadra || '-' }}</td>
           <td>
-            <span :class="['status', 'status-' + (p.stato || '').toLowerCase()]">
-              {{ p.stato }}
+            <span :class="['status', 'status-' + (p.stato_servizio || '').toLowerCase()]">
+              {{ p.stato_servizio }}
             </span>
           </td>
           <td class="actions">
@@ -82,14 +83,20 @@
               {{ s.nome_squadra }}
             </option>
           </select>
-          <select v-model="form.stato" required>
-            <option value="Attivo">Attivo</option>
-            <option value="Inattivo">Inattivo</option>
-            <option value="Congedo">Congedo</option>
-            <option value="Pensionato">Pensionato</option>
+          <select v-model="form.sesso">
+            <option value="Maschio">Maschio</option>
+            <option value="Femmina">Femmina</option>
+            <option value="Non specificato">Non specificato</option>
           </select>
-          <input v-model="form.data_assegnazione" type="date" required>
-          <textarea v-model="form.note" placeholder="Note"></textarea>
+          <select v-model="form.stato_servizio" required>
+            <option value="Attivo">Attivo</option>
+            <option value="Congedato">Congedato</option>
+            <option value="Deceduto">Deceduto</option>
+            <option value="Infortunato">Infortunato</option>
+            <option value="Sospeso">Sospeso</option>
+          </select>
+          <input v-model="form.altezza" type="text" placeholder="Altezza (es. 5'11\")">
+          <input v-model="form.soprannome" type="text" placeholder="Soprannome">
           
           <div class="modal-actions">
             <button type="submit" class="btn-primary">Salva</button>
@@ -127,9 +134,10 @@ export default {
       cognome: '',
       grado: '',
       squadra_id: '',
-      stato: 'Attivo',
-      data_assegnazione: new Date().toISOString().split('T')[0],
-      note: ''
+      sesso: 'Maschio',
+      stato_servizio: 'Attivo',
+      soprannome: '',
+      altezza: ''
     });
 
     const fetchPersonale = async () => {
