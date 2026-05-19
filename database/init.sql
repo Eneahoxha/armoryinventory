@@ -105,6 +105,25 @@ INSERT INTO squadre (nome_squadra, stato) VALUES
 ('Echo Team', 'Disponibile'),
 ('Supporto/CIA', 'Disponibile');
 
+-- Users Table for Authentication
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    nome VARCHAR(100),
+    cognome VARCHAR(100),
+    ruolo ENUM('admin', 'capo_sm', 'armaiolo', 'ufficiale', 'operatore') DEFAULT 'operatore',
+    stato ENUM('Attivo', 'Disattivato') DEFAULT 'Attivo',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_email (email),
+    INDEX idx_ruolo (ruolo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Seed admin user (password: admin123456) - CHANGE THIS ON PRODUCTION!
+INSERT IGNORE INTO users (email, password_hash, nome, cognome, ruolo, stato) VALUES
+('admin@armory.local', '$2y$10$N9qo8uLOickgx2ZMRZoMye4QJq6H9Y8K3y7k7DxuXYV8VjXWp5aQa', 'Admin', 'User', 'admin', 'Attivo');
+
 INSERT INTO categorie_equipaggiamento (nome_categoria, descrizione) VALUES
 ('Fucili d''Assalto', 'Fucili da assalto e carabine tattiche'),
 ('Pistole', 'Pistole da combattimento'),

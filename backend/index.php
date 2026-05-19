@@ -19,6 +19,7 @@ ini_set('display_errors', 0);
 
 // Load configuration
 require_once __DIR__ . '/api/config/Database.php';
+require_once __DIR__ . '/api/controllers/AuthController.php';
 
 // Parse the request
 $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -41,11 +42,88 @@ function json_response($data, $status = 200) {
 }
 
 // Initialize database connection
-$db = new Database();
-$conn = $db->connect();
+try {
+    $db = new Database();
+    $conn = $db->connect();
+} catch (Exception $e) {
+    json_response(['error' => 'Database Error: ' . $e->getMessage()], 500);
+    exit;
+}
 
-// API Routes (placeholder)
-switch ($endpoint) {
+// Debug endpoint for testing
+if ($endpoint === 'debug') {
+    $debug_info = [
+        'ok' => true,
+        'endpoint' => $endpoint,
+        'action' => $action
+    ];
+    
+    // Test database
+    try {
+        $stmt = $conn->prepare("SELECT 1");
+        $stmt->execute();
+        $debug_info['database'] = 'connected';
+    } catch (Exception $e) {
+        $debug_info['database_error'] = $e->getMessage();
+    }
+    
+    // Test AuthController
+    try {
+        require_once __DIR__ . '/api/controllers/AuthController.php';
+        $auth_controller = new AuthController($conn);
+        $debug_info['auth_controller'] = 'loaded';
+    } catch (Exception $e) {
+        $debug_info['auth_error'] = $e->getMessage();
+    }
+    
+    json_response($debug_info, 200);
+    exit;
+}
+
+// API Routes
+try {
+    switch ($endpoint) {
+    case 'auth':
+        $auth_controller = new AuthController($conn);
+        
+        switch ($action) {
+            case 'login':
+                if ($request_method !== 'POST') {
+                    json_response(['error' => 'Method not allowed'], 405);
+                }
+                $response = $auth_controller->login();
+                json_response($response);
+                break;
+            
+            case 'validate':
+                if ($request_method !== 'POST') {
+                    json_response(['error' => 'Method not allowed'], 405);
+                }
+                $response = $auth_controller->validate();
+                json_response($response);
+                break;
+            
+            case 'register':
+                if ($request_method !== 'POST') {
+                    json_response(['error' => 'Method not allowed'], 405);
+                }
+                $response = $auth_controller->register();
+                json_response($response);
+                break;
+            
+            case 'logout':
+                if ($request_method !== 'POST') {
+                    json_response(['error' => 'Method not allowed'], 405);
+                }
+                $response = $auth_controller->logout();
+                json_response($response);
+                break;
+            
+            default:
+                json_response(['error' => 'Auth action not found'], 404);
+        }
+        break;
+    
     case 'personale':
         json_response(['message' => 'Personale API endpoint', 'method' => $request_method]);
         break;
@@ -58,7 +136,14 @@ switch ($endpoint) {
         json_response(['message' => 'Equipaggiamento API endpoint', 'method' => $request_method]);
         break;
     
+    case 'dotazioni':
+        json_response(['message' => 'Dotazioni API endpoint', 'method' => $request_method]);
+        break;
+    
     default:
         json_response(['error' => 'Endpoint not found'], 404);
+}
+} catch (Exception $e) {
+    json_response(['error' => 'Server Error: ' . $e->getMessage()], 500);
 }
 ?>
