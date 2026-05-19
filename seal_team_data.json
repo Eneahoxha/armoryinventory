@@ -1,0 +1,474 @@
+{
+    "characters": [
+        {
+            "real_name": "Clay Spenser",
+            "occupations": [
+                "Navy SEAL",
+                "Navy Seal Instructor"
+            ],
+            "titles": [
+                "Petty Officer First Class",
+                "Tier-One Operator",
+                "Bravo 6",
+                "B6",
+                "Bravo 2 (Temporary)"
+            ],
+            "born": "29 March 1989",
+            "relationships": {
+                "wife": "Stella Baxter",
+                "interests": [
+                    "Rebecca Bowen (Ex-girlfriend)"
+                ],
+                "parents": [
+                    "Ash Spenser (Father)",
+                    "Unnamed Mother †"
+                ],
+                "children": [
+                    "Brian Spenser (Son)"
+                ]
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Green Team (Former)",
+                "SEAL Team 3 (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "5'11"
+            },
+            "status": "Deceased"
+        },
+        {
+            "real_name": "Percival Sonny Quinn",
+            "occupations": [
+                "Navy SEAL- Former"
+            ],
+            "titles": [
+                "Chief Petty Officer Quinn",
+                "Tier-One Operator",
+                "Bravo 3",
+                "B3"
+            ],
+            "born": "1983 (?)",
+            "originally_from": "Austin, Texas",
+            "relationships": {
+                "interests": [
+                    "Hannah Oliver (Estranged)",
+                    "Lisa Davis (Ex)"
+                ],
+                "parents": [
+                    "Emmet Quinn (Father)",
+                    "Eileen Quinn † (Mother)"
+                ],
+                "children": [
+                    "Leanne Oliver"
+                ]
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Green Team (Former)",
+                "SEAL Team 4 (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "5'9"
+            }
+        },
+        {
+            "real_name": "Lisa Davis",
+            "occupations": [
+                "Admiral's Flag Aide",
+                "DEVGRU Intelligence Officer (promoted)",
+                "Bravo Team Logistics Specialist (promoted)"
+            ],
+            "titles": [
+                "Lieutenant (O-3)",
+                "Lieutenant, junior grade (O-2, promoted)",
+                "Ensign (O-1, promoted)",
+                "Midshipman (promoted)",
+                "Logistics Specialist 1st Class (E-6, promoted)"
+            ],
+            "relationships": {
+                "interests": [
+                    "Reiss Julian (Ex-Boyfriend)",
+                    "Sonny Quinn (Ex-Boyfriend)",
+                    "Danny Cooper (Ex-Boyfriend)"
+                ],
+                "parents": [
+                    "Unnamed Mother †",
+                    "Unamed Father"
+                ],
+                "family": [
+                    "Ronnie Davis (Sister)",
+                    "Michelle Davis (Sister) †"
+                ]
+            },
+            "affiliations": [
+                "Bravo Team",
+                "Yeoman (Former)",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Female",
+                "height": "5'2 ¼"
+            }
+        },
+        {
+            "real_name": "Jason Hayes",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Master Chief Petty Officer (E9)"
+            ],
+            "born": "1975",
+            "current_location": "Virginia Beach, VA",
+            "relationships": {
+                "wife": "Alana Hayes †",
+                "interests": [
+                    "Mandy Ellis",
+                    "Natalie Pierce (Ex)",
+                    "Amy Nelson (Former Affair)"
+                ],
+                "parents": [
+                    "Dave Hayes (Father)",
+                    "Linda Hayes (Mother)"
+                ],
+                "children": [
+                    "Emma Hayes (Daughter)",
+                    "Michael Hayes (Son)",
+                    "Landon Massey (Godson)"
+                ]
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Green Team (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "6'1"
+            }
+        },
+        {
+            "real_name": "Raymond Perry",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Chief Warrant Officer 2",
+                "Mako 1",
+                "Senior Chief Petty Officer (Former)",
+                "Bravo 2 (Former)",
+                "B2 (Former)",
+                "Bravo 6 (Temporary)"
+            ],
+            "relationships": {
+                "wife": "Naima Perry",
+                "children": [
+                    "Jameelah Perry (Daughter)",
+                    "Raymond Perry Jr (Son)"
+                ]
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Green Team (Former)",
+                "SEAL Team 3 (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "5'9"
+            }
+        },
+        {
+            "real_name": "Brock Reynolds",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Special Warfare Operator",
+                "First Class",
+                "Tier-One Operator",
+                "Bravo 5",
+                "B5"
+            ],
+            "relationships": {
+                "family": [
+                    "Cerberus (Dog)",
+                    "Pepper (Dog)"
+                ]
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Green Team (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "5'9"
+            }
+        },
+        {
+            "real_name": "Trent Sawyer",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Special Warfare Operator",
+                "First Class",
+                "Tier-One Operator",
+                "Bravo 4",
+                "B4"
+            ],
+            "relationships": {
+                "wife": "Ex-Wife"
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Green Team (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "6'2"
+            }
+        },
+        {
+            "real_name": "Omar Hamza",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Senior Chief Petty Officer",
+                "Tier-One Operator",
+                "Bravo 2",
+                "B2",
+                "Foxtrot 2 (Former)",
+                "F2 (Former)"
+            ],
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Foxtrot Team (Former)",
+                "Green Team (Former)",
+                "SEAL Team 5 (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male"
+            }
+        },
+        {
+            "real_name": "Drew Franklin",
+            "occupations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Echo Team (Former)"
+            ],
+            "titles": [
+                "Chief Petty Officer"
+            ],
+            "relationships": {
+                "family": [
+                    "Nora (Sister)"
+                ]
+            },
+            "physical_description": {
+                "gender": "Male"
+            }
+        },
+        {
+            "real_name": "Scott Carter",
+            "nickname": "Full Metal",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Senior Chief Special Warfare Operator",
+                "Tier-One Operator",
+                "Alpha 1",
+                "A1"
+            ],
+            "status": "Deceased",
+            "dies": "Nigeria",
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team",
+                "Alpha Team (Former)",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "6'1"
+            }
+        },
+        {
+            "real_name": "Michael Chen",
+            "nickname": "Thirty Mike",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Chief Special Warfare Operator (E7)",
+                "Tier-One Operator",
+                "Charlie 2",
+                "C2",
+                "Bravo 1 (Temporary Until Jason is replaced)"
+            ],
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team (Former)",
+                "Charlie Team",
+                "Green Team (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "6'2"
+            }
+        },
+        {
+            "real_name": "Wes Soto",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Echo Team Commanding Officer",
+                "Lieutenant"
+            ],
+            "affiliations": [
+                "Navy SEAL",
+                "Echo Team",
+                "Bravo Team (Former)",
+                "Green Team (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male"
+            }
+        },
+        {
+            "real_name": "Eric Blackburn",
+            "occupations": [
+                "Navy SEAL"
+            ],
+            "titles": [
+                "Commander"
+            ],
+            "relationships": {
+                "wife": "Multiple ex-wives"
+            },
+            "affiliations": [
+                "Navy SEAL",
+                "Bravo Team (Former)",
+                "Green Team (Former)",
+                "BUD/S",
+                "United States Navy"
+            ],
+            "physical_description": {
+                "gender": "Male",
+                "height": "5'9\""
+            }
+        },
+        {
+            "real_name": "Amanda Ellis",
+            "occupations": [
+                "Former CIA Clandestine Operations Operative"
+            ],
+            "titles": [
+                "Clandestine Operations Operative (COO)",
+                "Special Activities Division (SAD)",
+                "Central Intelligence Agency (CIA)"
+            ],
+            "relationships": {
+                "interests": [
+                    "Jason Hayes"
+                ]
+            },
+            "affiliations": [
+                "CIA",
+                "DEVGRU"
+            ],
+            "physical_description": {
+                "gender": "Female",
+                "height": "5'8"
+            }
+        }
+    ],
+    "teams": [
+        {
+            "name": "Alpha Team",
+            "status": "Active",
+            "members": [
+                "Scott Carter (Former)",
+                "Derek",
+                "Franklin"
+            ],
+            "affiliations": [
+                "Navy SEAL",
+                "United States Navy",
+                "CIA"
+            ]
+        },
+        {
+            "name": "Bravo Team",
+            "status": "Active",
+            "members": [
+                "Jason Hayes (Bravo-1)",
+                "Omar Hamza (Bravo-2)",
+                "Trent Sawyer (Bravo-3)",
+                "Brock Reynolds (Bravo-4)",
+                "Drew Franklin (Bravo-5)",
+                "Reed Karlson (Bravo-6)"
+            ],
+            "support_personnel": [
+                "LTJG Lisa Davis (Intelligence Officer)"
+            ],
+            "military_working_dog": [
+                "Pepper"
+            ],
+            "affiliations": [
+                "Navy SEAL",
+                "United States Navy",
+                "CIA"
+            ]
+        },
+        {
+            "name": "Echo Team",
+            "status": "Active",
+            "members": [
+                "LT Wes Soto (Officer-in-Charge)",
+                "Drew Franklin",
+                "Steve Porter †",
+                "Robert Johnson †",
+                "Richard Williams †",
+                "Chris Hall †",
+                "Michael Miller †",
+                "Ramon Garcia †"
+            ],
+            "affiliations": [
+                "Navy SEAL",
+                "United States Navy",
+                "CIA"
+            ]
+        }
+    ]
+}

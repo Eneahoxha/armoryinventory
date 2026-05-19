@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: armory_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: USNAVY
+      MYSQL_USER: armory_user
+      MYSQL_PASSWORD: armory_password
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - armory_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "armory_user", "-p${MYSQL_PASSWORD}"]
+      timeout: 20s
+      retries: 10
+
+  # PHP Backend Service
+  php:
+    image: php:8.2-fpm-alpine
+    container_name: armory_php
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - php_config:/usr/local/etc/php/conf.d/
+    environment:
+      DB_HOST: mysql
+      DB_DATABASE: USNAVY
+      DB_USERNAME: armory_user
+      DB_PASSWORD: armory_password
+    networks:
+      - armory_network
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    expose:
+      - "9000"
+
+  # Nginx Web Server
+  nginx:
+    image: nginx:alpine
+    container_name: armory_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./backend:/app
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./public:/app/public
+    depends_on:
+      - php
+    networks:
+      - armory_network
+    restart: unless-stopped
+
+  # Node.js Frontend Development Server (Vite)
+  frontend:
+    image: node:18-alpine
+    container_name: armory_frontend
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost/api
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - armory_network
+    restart: unless-stopped
+
+  # phpMyAdmin (for database management)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: armory_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: armory_user
+      PMA_PASSWORD: armory_password
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - armory_network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  php_config:
+
+networks:
+  armory_network:
+    driver: bridge
