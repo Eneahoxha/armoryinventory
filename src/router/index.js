@@ -7,6 +7,7 @@ import PersonaleList from '../views/PersonaleList.vue'
 import SquadreList from '../views/SquadreList.vue'
 import EquipaggiamentoList from '../views/EquipaggiamentoList.vue'
 import DotazioniList from '../views/DotazioniList.vue'
+import RelazioniList from '../views/RelazioniList.vue'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: '/personale',
     name: 'Personale',
     component: PersonaleList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/relazioni',
+    name: 'Relazioni',
+    component: RelazioniList,
     meta: { requiresAuth: true }
   },
   {

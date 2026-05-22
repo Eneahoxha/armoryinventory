@@ -6,6 +6,7 @@
         <h1 @click="$router.push('/dashboard')" class="logo">⚔️ Armory Inventory</h1>
         <nav class="main-nav">
           <router-link v-if="canAccess('personale')" to="/personale" class="nav-link">👤 Personale</router-link>
+          <router-link v-if="canAccess('personale')" to="/relazioni" class="nav-link">👨‍👩‍👧 Relazioni</router-link>
           <router-link v-if="canAccess('squadre')" to="/squadre" class="nav-link">🎖️ Squadre</router-link>
           <router-link v-if="canAccess('equipaggiamento')" to="/equipaggiamento" class="nav-link">🔫 Armeria</router-link>
           <router-link v-if="canAccess('dotazioni')" to="/dotazioni" class="nav-link">📦 Dotazioni</router-link>
