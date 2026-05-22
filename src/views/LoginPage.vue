@@ -9,37 +9,7 @@
     <div class="login-card">
       <!-- Navy SEAL Logo -->
       <div class="logo-section">
-        <svg class="navy-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <!-- Circle outer -->
-          <circle cx="100" cy="100" r="95" fill="none" stroke="#c9a961" stroke-width="3"/>
-          <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a961" stroke-width="1" opacity="0.5"/>
-          
-          <!-- Text on circle -->
-          <defs>
-            <path id="circlePath" cx="100" cy="100" r="75" fill="none"/>
-            <path d="M 25,100 A 75,75 0 0,1 175,100" id="topPath" fill="none"/>
-          </defs>
-          <text font-size="12" font-weight="bold" fill="#c9a961" letter-spacing="2">
-            <textPath href="#topPath" startOffset="50%" text-anchor="middle">
-              NAVY SEAL ARMORY
-            </textPath>
-          </text>
-
-          <!-- Inner circle -->
-          <circle cx="100" cy="100" r="60" fill="none" stroke="#c9a961" stroke-width="2"/>
-          
-          <!-- Eagle/Shield emblem -->
-          <g transform="translate(100,100)">
-            <!-- Shield background -->
-            <path d="M -20,-15 L 20,-15 L 20,15 Q 0,25 -20,15 Z" fill="#1a5f7a" stroke="#c9a961" stroke-width="1"/>
-            
-            <!-- Eagle icon (simplified) -->
-            <g transform="scale(0.8)" fill="#c9a961">
-              <path d="M -8,-5 L -3,0 L -8,5 M 8,-5 L 3,0 L 8,5 M 0,-8 L 0,8" stroke="#c9a961" stroke-width="1.5" fill="none"/>
-              <circle cx="0" cy="0" r="2" fill="#c9a961"/>
-            </g>
-          </g>
-        </svg>
+        <img src="/navy-seal-logo.png" alt="U.S. Navy" class="navy-logo" />
       </div>
 
       <!-- Form -->
