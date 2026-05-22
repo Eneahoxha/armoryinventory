@@ -43,8 +43,8 @@
       </form>
 
       <div class="login-footer">
-        <p>Default credentials:</p>
-        <code>admin@armory.local / admin123456</code>
+        <p>© 2024 Navy SEAL Armory Management System</p>
+        <p class="subtitle">Authorized Personnel Only</p>
       </div>
     </div>
   </div>
@@ -175,7 +175,16 @@ const handleLogin = async () => {
   border-top: 1px solid #e0e0e0;
   text-align: center;
   font-size: 12px;
-  color: #666;
+  color: #999;
+}
+
+.login-footer p {
+  margin: 0;
+}
+
+.login-footer .subtitle {
+  font-size: 11px;
+  color: #aaa;
 }
 
 .login-footer code {

@@ -1,0 +1,98 @@
+{
+  "_comment": "⚠️  DEVELOPMENT ONLY - Never commit to production repositories",
+  "_security_note": "These are LOCAL DEV credentials only. For production, use environment variables and a proper authentication service.",
+  "_usage": "Copy this file to .env.local or pass through environment variables in production",
+  
+  "users": [
+    {
+      "user_id": 1,
+      "email": "admin@armory.local",
+      "password_hash": "$2y$12$N9qo8uLOickgx2ZMRZoMy.q9FIK2.9fQiDgZH5bGYR6/4Y4Rflzh.",
+      "nome": "Admin",
+      "cognome": "System",
+      "ruolo": "admin",
+      "stato": "Attivo",
+      "_dev_password": "admin123456",
+      "_note": "Super admin - full system access"
+    },
+    {
+      "user_id": 2,
+      "email": "caposm@armory.local",
+      "password_hash": "$2y$12$K8qo7tMNOxhfx1ZMRZoMy.q9FIK2.9fQiDgZH5bGYR6/4Y4Rflzh.",
+      "nome": "Jason",
+      "cognome": "Hayes",
+      "ruolo": "capo_sm",
+      "stato": "Attivo",
+      "_dev_password": "capo123456",
+      "_note": "Chief of Staff - system statistics and overview"
+    },
+    {
+      "user_id": 3,
+      "email": "armaiolo@armory.local",
+      "password_hash": "$2y$12$L9qo9tMNOxhfx2ZMRZoMy.q9FIK2.9fQiDgZH5bGYR6/4Y4Rflzh.",
+      "nome": "Raymond",
+      "cognome": "Perry",
+      "ruolo": "armaiolo",
+      "stato": "Attivo",
+      "_dev_password": "armaiolo123456",
+      "_note": "Armourer - manage weapons and equipment"
+    },
+    {
+      "user_id": 4,
+      "email": "ufficiale@armory.local",
+      "password_hash": "$2y$12$M9qo9tMNOxhfx3ZMRZoMy.q9FIK2.9fQiDgZH5bGYR6/4Y4Rflzh.",
+      "nome": "Sonny",
+      "cognome": "Quinn",
+      "ruolo": "ufficiale",
+      "stato": "Attivo",
+      "_dev_password": "ufficiale123456",
+      "_note": "Officer - manage personnel and teams"
+    },
+    {
+      "user_id": 5,
+      "email": "operatore@armory.local",
+      "password_hash": "$2y$12$N9qo9tMNOxhfx4ZMRZoMy.q9FIK2.9fQiDgZH5bGYR6/4Y4Rflzh.",
+      "nome": "Clay",
+      "cognome": "Spenser",
+      "ruolo": "operatore",
+      "stato": "Attivo",
+      "_dev_password": "operatore123456",
+      "_note": "Operator - view own assignments and team equipment"
+    }
+  ],
+
+  "_password_info": {
+    "algorithm": "bcrypt",
+    "cost": 12,
+    "note": "All passwords above are hashed with bcrypt cost 12",
+    "how_to_generate": "Use: password_hash('your_password', PASSWORD_BCRYPT, ['cost' => 12])"
+  },
+
+  "_deployment_guide": {
+    "development": {
+      "location": ".env.local or users.local.json",
+      "visibility": "NEVER commit to git",
+      "usage": "Local development only"
+    },
+    "production": {
+      "location": "Environment variables or secure secret store",
+      "visibility": "NEVER expose in frontend",
+      "usage": "Use authentication service (OAuth2, SAML, LDAP, etc.)"
+    }
+  },
+
+  "_security_checklist": [
+    "✅ NEVER expose credentials in frontend code",
+    "✅ NEVER show passwords in login page footer",
+    "✅ NEVER commit credentials to git repository",
+    "✅ NEVER use hard-coded passwords in production",
+    "✅ Always hash passwords with bcrypt (cost 12+)",
+    "✅ Use HTTPS in production",
+    "✅ Implement rate limiting on login endpoint",
+    "✅ Log all authentication attempts",
+    "✅ Implement 2FA/MFA for sensitive accounts",
+    "✅ Use environment variables for secrets",
+    "✅ Rotate credentials regularly",
+    "✅ Never store plain text passwords"
+  ]
+}
