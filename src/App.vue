@@ -1,6 +1,7 @@
 <script setup>
-import { useRouter } from 'vue-router'
-import { useAuthStore } from './stores/auth'
+import { useRouter } from "vue-router"
+import { useAuthStore } from "./stores/auth"
+import "./styles/dark-theme.css"
 </script>
 
 <template>
@@ -17,9 +18,11 @@ import { useAuthStore } from './stores/auth'
 html, body, #app {
   height: 100%;
   width: 100%;
+  background: #0e1419;
+  color: #e8eef2;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 </style>
