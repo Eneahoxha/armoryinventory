@@ -29,10 +29,12 @@ class User {
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
         ";
         
-        if ($this->conn->query($query) === TRUE) {
+        try {
+            $this->conn->exec($query);
             return true;
+        } catch (PDOException $e) {
+            throw new Exception("Error creating users table: " . $e->getMessage());
         }
-        throw new Exception("Error creating users table: " . $this->conn->error);
     }
 
     /**
