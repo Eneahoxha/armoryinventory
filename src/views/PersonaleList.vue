@@ -95,7 +95,7 @@
             <option value="Infortunato">Infortunato</option>
             <option value="Sospeso">Sospeso</option>
           </select>
-          <input v-model="form.altezza" type="text" placeholder="Altezza (es. 5'11\")">
+          <input v-model="form.altezza" type="text" placeholder="Altezza (es. 5-11)">
           <input v-model="form.soprannome" type="text" placeholder="Soprannome">
           
           <div class="modal-actions">
@@ -125,7 +125,7 @@ export default {
     const showAddForm = ref(false);
     const editingId = ref(null);
     
-    const limit = ref(10);
+    const limit = 10;
     const offset = ref(0);
     const total = ref(0);
 
@@ -144,13 +144,14 @@ export default {
       try {
         loading.value = true;
         const res = await axios.get('/api/personale', {
-          params: { limit: limit.value, offset: offset.value }
+          params: { limit: limit, offset: offset.value }
         });
         personale.value = res.data.data || [];
         total.value = res.data.pagination?.total || 0;
         error.value = null;
       } catch (err) {
         error.value = err.response?.data?.error || 'Errore nel caricamento personale';
+        console.error(err);
       } finally {
         loading.value = false;
       }
@@ -209,26 +210,27 @@ export default {
         cognome: '',
         grado: '',
         squadra_id: '',
-        stato: 'Attivo',
-        data_assegnazione: new Date().toISOString().split('T')[0],
-        note: ''
+        sesso: 'Maschio',
+        stato_servizio: 'Attivo',
+        soprannome: '',
+        altezza: ''
       };
     };
 
     const nextPage = () => {
-      offset.value += limit.value;
+      offset.value += limit;
       fetchPersonale();
     };
 
     const previousPage = () => {
       if (offset.value > 0) {
-        offset.value = Math.max(0, offset.value - limit.value);
+        offset.value = Math.max(0, offset.value - limit);
         fetchPersonale();
       }
     };
 
-    const currentPage = () => Math.floor(offset.value / limit.value) + 1;
-    const totalPages = () => Math.ceil(total.value / limit.value);
+    const currentPage = () => Math.floor(offset.value / limit) + 1;
+    const totalPages = () => Math.ceil(total.value / limit);
 
     onMounted(() => {
       fetchSquadre();
@@ -246,7 +248,7 @@ export default {
       showAddForm,
       editingId,
       form,
-      limit: limit.value,
+      limit,
       offset,
       total: total.value,
       currentPage: currentPage(),
@@ -357,14 +359,24 @@ export default {
   color: #721c24;
 }
 
-.status-congedo {
+.status-congedato {
   background-color: #fff3cd;
   color: #856404;
 }
 
-.status-pensionato {
+.status-deceduto {
   background-color: #e2e3e5;
   color: #383d41;
+}
+
+.status-infortunato {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-sospeso {
+  background-color: #fff3cd;
+  color: #856404;
 }
 
 .actions {

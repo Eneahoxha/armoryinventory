@@ -95,15 +95,17 @@ class User {
      * Get all users (admin only)
      */
     public function getAll($limit = 50, $offset = 0) {
+        $limit = max(1, (int)$limit);
+        $offset = max(0, (int)$offset);
+        
         $query = "
             SELECT user_id, email, nome, cognome, ruolo, stato, created_at 
             FROM " . $this->table . " 
-            LIMIT ? OFFSET ?
-        ";
+            LIMIT " . $limit . " OFFSET " . $offset;
         
         try {
             $stmt = $this->conn->prepare($query);
-            $stmt->execute([$limit, $offset]);
+            $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             throw new Exception("Database error: " . $e->getMessage());
